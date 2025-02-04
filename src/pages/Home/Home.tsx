@@ -1,26 +1,24 @@
-// src/pages/Home/Home.tsx
-import React from 'react';
-import { Box, Button, Typography } from '@mui/material';
+// import React from 'react';
+import Hero from './Hero';
+import CTABanner from './CTABanner';
+import TeachingApproach from './TeachingApproach';
+import { Box } from '@mui/material';
 
+/**
+ * The main homepage, composed of various sections: Hero, Teaching Approach,
+ * CTA banner, etc.
+ */
 const Home: React.FC = () => {
   return (
-    <Box sx={{ p: 2 }}>
-      <Typography variant="h2" gutterBottom>
-        Welcome to My Educator App
-      </Typography>
-      <Typography variant="body1" paragraph>
-        Highlights of my teaching approach and a quick welcome message.
-      </Typography>
+    <Box>
+      {/* Hero section with a welcome message and optional CTA buttons */}
+      <Hero />
 
-      {/* CTA Buttons */}
-      <Box sx={{ display: 'flex', gap: 1 }}>
-        <Button variant="contained" color="primary">
-          Book Now
-        </Button>
-        <Button variant="outlined" color="secondary">
-          Learn More
-        </Button>
-      </Box>
+      {/* Teaching Approach section */}
+      <TeachingApproach />
+
+      {/* CTA Banner */}
+      <CTABanner />
     </Box>
   );
 };
