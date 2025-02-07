@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 // https://vite.dev/config/
 // "command" can be 'serve' or 'build', and "mode" can be 'development' or 'production' by default
-export default defineConfig(({ command, mode }) => {
+export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     base: mode === 'production' ? '/my-educator-app/' : '/',
