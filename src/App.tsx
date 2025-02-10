@@ -1,26 +1,30 @@
 // App.tsx
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Courses from './pages/Courses/Courses';
-import './App.css'; // keep if you have a minimal reset
+import './App.css';
 import { Typography } from '@mui/material';
 
 function App() {
+  // Check if we’re in production mode (for GitHub Pages)
+  const isProd = import.meta.env.MODE === 'production';
+
   return (
     <div className="appContainer">
-      {/* MUI Typography used here */}
       <Typography variant="h2" gutterBottom>
         My Educator App
       </Typography>
 
-      <Router>
+      {/* Use BrowserRouter with a conditional basename */}
+      <BrowserRouter basename={isProd ? '/my-educator-app' : '/'}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/courses" element={<Courses />} />
         </Routes>
-      </Router>
+      </BrowserRouter>
     </div>
   );
 }

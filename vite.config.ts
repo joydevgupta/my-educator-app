@@ -1,12 +1,12 @@
+// vite.config.ts
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vite.dev/config/
-// "command" can be 'serve' or 'build', and "mode" can be 'development' or 'production' by default
+// "command" can be 'serve' or 'build', "mode" can be 'development' or 'production'
 export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     base: mode === 'production' ? '/my-educator-app/' : '/',
-    // ...other config
+    // ...other config if needed
   };
 });
