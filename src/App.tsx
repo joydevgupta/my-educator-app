@@ -12,8 +12,16 @@ function App() {
 
   return (
     <div className="appContainer">
-      <Typography variant="h2" gutterBottom>
-        My Educator App
+      <Typography variant="h1" gutterBottom className="multiColor">
+        <span>E</span>
+        <span>D</span>
+        <span>U</span>
+        <span>F</span>
+        <span>I</span>
+        <span>N</span>
+        <span>I</span>
+        <span>T</span>
+        <span>E</span>
       </Typography>
 
       {/* Use BrowserRouter with a conditional basename */}
