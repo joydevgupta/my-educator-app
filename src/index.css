@@ -1,11 +1,19 @@
+/* Index.css */
+
+/* Basic Reset */
+* {
+  box-sizing: border-box;
+}
+
+/* 
+  Remove color-scheme, dark background, etc.,
+  so that MUI's theme colors are consistent.
+*/
 :root {
+  /* Keep your base fonts, system alignment, if desired */
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,28 +21,23 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/*
+  If you want minimal direct styling for anchors:
+  (Alternatively, let MUI <Link> handle styling)
+*/
 a {
+  color: #048abf; /* match your "primary" if you like */
+  text-decoration: none;
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #035b78; /* darker hover */
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
+/*
+  If you prefer MUI <Button> for everything, you can remove these. 
+  Otherwise, keep them for <button> elements outside MUI.
+*/
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -42,27 +45,32 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #f9f9f9;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #048abf;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/*
+  If you want the entire <body> to vertically/horizontally center its contents, 
+  you can keep the following. Otherwise, remove for normal scrolling layout.
+*/
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
 }
+
+/*
+  Remove or modify the following if you prefer normal scrolling 
+  or standard MUI container layout instead of forced centering.
+*/

@@ -1,38 +1,63 @@
 // src/theme/theme.ts
 import { createTheme } from '@mui/material/styles';
-import { teal, orange, grey, deepPurple } from '@mui/material/colors';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: teal[600], // Customize as needed
+      // Soft sky-blue
+      main: '#6EC5E9',
+      // White text for better visibility on medium-bright blue
+      contrastText: '#FFFFFF',
     },
     secondary: {
-      main: orange[500],
+      // Gentle pastel pink
+      main: '#F8A8BB',
+      // White text still has acceptable contrast here
+      contrastText: '#FFFFFF',
+    },
+    success: {
+      // Minty green (quite light)
+      main: '#C1E7C0',
+      // Dark text for better contrast on a pale background
+      contrastText: '#333333',
+    },
+    warning: {
+      // Pale sunny yellow
+      main: '#F8E9A1',
+      // Dark text for clarity
+      contrastText: '#333333',
+    },
+    error: {
+      // Soft coral/pink
+      main: '#F3BAB3',
+      // Dark text for clarity
+      contrastText: '#333333',
     },
     background: {
-      default: grey[50],
+      // Light, warm neutral
+      default: '#FDFDFD',
     },
     text: {
-      primary: '#333',
-      secondary: grey[700],
+      // Dark gray for body text
+      primary: '#333333',
+      secondary: '#555555',
     },
   },
   typography: {
-    fontFamily: `'Roboto', 'Helvetica', 'Arial', sans-serif`,
+    fontFamily: `'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif`,
     h1: {
       fontSize: '2.2rem',
       fontWeight: 700,
-      color: deepPurple[900],
+      color: '#333333',
       letterSpacing: '0.5px',
     },
     h2: {
       fontSize: '1.75rem',
       fontWeight: 600,
-      color: deepPurple[800],
+      color: '#555555',
       marginBottom: '0.5rem',
     },
-    // You can define h3, body1, etc., as you see fit
+    // Add more heading/body styles as you prefer
   },
   shape: {
     borderRadius: 8,

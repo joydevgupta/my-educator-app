@@ -1,3 +1,5 @@
+/* App.css */
+
 /* Remove default browser padding/margin */
 html,
 body,
@@ -6,10 +8,15 @@ body,
   padding: 0;
 }
 
-/* Set a default font family — you can tweak or remove if you rely on MUI theme settings */
+/* 
+  Font family is controlled by the MUI theme,
+  so this is optional if you trust the theme. 
+  We'll keep it for a quick fallback if needed.
+*/
 body {
-  font-family: 'Roboto', sans-serif; /* MUI's default font is Roboto, if installed */
-  background-color: #f5f5f5; /* A light neutral background from MUI's palette */
+  font-family: 'Inter', 'Roboto', sans-serif;
+  /* No need to set background here if we want MUI to handle it */
+  /* background-color: #FDFDFD; */
 }
 
 /* Utility class for spacing */
@@ -17,39 +24,39 @@ body {
   margin: 16px 0;
 }
 
-/* New class for container padding in App.tsx */
+/* Container padding */
 .appContainer {
   padding: 1rem;
 }
 
 /* 
-  Class for coloring each letter of "EDUFINITE" 
-  using :nth-child selectors 
+  Keep the multiColor logo as is, 
+  so "EDUFINITE" colors remain unchanged 
 */
 .multiColor span:nth-child(1) {
-  color: #ff0000; /* Red */
+  color: #777777; /* Dark Grey */
 }
 .multiColor span:nth-child(2) {
-  color: #0000ff; /* Blue */
+  color: #a568d2; /* Purple */
 }
 .multiColor span:nth-child(3) {
-  color: #00ff00; /* Green */
+  color: #377aff; /* Blue */
 }
 .multiColor span:nth-child(4) {
-  color: #ffa500; /* Orange */
+  color: #4fb4ff; /* Light Blue */
 }
 .multiColor span:nth-child(5) {
-  color: #800080; /* Purple */
+  color: #4fff9f; /* Green */
 }
 .multiColor span:nth-child(6) {
-  color: #00ffff; /* Aqua */
+  color: #fde377; /* Yellow */
 }
 .multiColor span:nth-child(7) {
-  color: #800000; /* Maroon */
+  color: #ff9c85; /* Orange */
 }
 .multiColor span:nth-child(8) {
-  color: #a52a2a; /* Brown */
+  color: #ff5d69; /* Red */
 }
 .multiColor span:nth-child(9) {
-  color: #808080; /* Gray */
+  color: #d0cece; /* Light Gray */
 }
