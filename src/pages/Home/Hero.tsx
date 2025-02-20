@@ -18,7 +18,18 @@ const Hero: React.FC = () => {
     >
       {/* Replace with an <img> or MUI <CardMedia> if you want a hero image */}
       <Typography variant="h2" gutterBottom>
-        Welcome to My Educator App
+        Welcome to{' '}
+        <span className="multiColor">
+          <span>E</span>
+          <span>D</span>
+          <span>U</span>
+          <span>F</span>
+          <span>I</span>
+          <span>N</span>
+          <span>I</span>
+          <span>T</span>
+          <span>E</span>
+        </span>
       </Typography>
       <Typography variant="body1" paragraph>
         Highlights of my teaching approach and a quick welcome message.

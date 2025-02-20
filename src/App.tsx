@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="appContainer">
-      <Typography variant="h1" gutterBottom className="multiColor">
+      {/* <Typography variant="h1" gutterBottom className="multiColor">
         <span>E</span>
         <span>D</span>
         <span>U</span>
@@ -22,7 +22,7 @@ function App() {
         <span>I</span>
         <span>T</span>
         <span>E</span>
-      </Typography>
+      </Typography> */}
 
       {/* Use BrowserRouter with a conditional basename */}
       <BrowserRouter basename={isProd ? '/my-educator-app' : '/'}>
