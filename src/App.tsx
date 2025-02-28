@@ -4,7 +4,6 @@ import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Courses from './pages/Courses/Courses';
 import './App.css';
-import { Typography } from '@mui/material';
 
 function App() {
   // Check if we’re in production mode (for GitHub Pages)

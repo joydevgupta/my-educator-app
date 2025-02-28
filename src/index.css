@@ -1,76 +1,67 @@
-/* Index.css */
-
-/* Basic Reset */
-* {
-  box-sizing: border-box;
-}
-
-/* 
-  Remove color-scheme, dark background, etc.,
-  so that MUI's theme colors are consistent.
-*/
-:root {
-  /* Keep your base fonts, system alignment, if desired */
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/*
-  If you want minimal direct styling for anchors:
-  (Alternatively, let MUI <Link> handle styling)
-*/
-a {
-  color: #048abf; /* match your "primary" if you like */
-  text-decoration: none;
-  font-weight: 500;
-}
-a:hover {
-  color: #035b78; /* darker hover */
-}
-
-/*
-  If you prefer MUI <Button> for everything, you can remove these. 
-  Otherwise, keep them for <button> elements outside MUI.
-*/
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #f9f9f9;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #048abf;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-/*
-  If you want the entire <body> to vertically/horizontally center its contents, 
-  you can keep the following. Otherwise, remove for normal scrolling layout.
-*/
-body {
-  margin: 0;
+/* ✅ Updated Preloader Styling */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
   display: flex;
-  justify-content: center;
   align-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 2s ease-in-out;
+  z-index: 9999;
 }
 
-/*
-  Remove or modify the following if you prefer normal scrolling 
-  or standard MUI container layout instead of forced centering.
-*/
+/* ✅ Preloader Content - Logo and Spinner */
+.preloader-content {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between logo and spinner */
+}
+
+/* ✅ Extended Fade-Out Effect */
+.preloader.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ✅ Preloader Logo */
+.preloader-logo {
+  width: 200px;
+  height: auto;
+  animation: fadeIn 3s ease-in-out;
+}
+
+/* ✅ Preloader Spinner */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-top: 5px solid #048abf; /* Change this to match your theme */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* ✅ Fade-In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ✅ Spinner Rotation Animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
