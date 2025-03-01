@@ -1,4 +1,4 @@
-/* ✅ Updated Preloader Styling */
+/* ✅ Preloader Styling */
 .preloader {
   position: fixed;
   top: 0;
@@ -14,11 +14,12 @@
   z-index: 9999;
 }
 
-/* ✅ Preloader Content - Logo and Spinner */
+/* ✅ Preloader Content - Logo and Progress Text */
 .preloader-content {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 15px; /* Space between logo and spinner */
+  gap: 10px; /* Space between logo and progress text */
 }
 
 /* ✅ Extended Fade-Out Effect */
@@ -34,14 +35,12 @@
   animation: fadeIn 3s ease-in-out;
 }
 
-/* ✅ Preloader Spinner */
-.spinner {
-  width: 40px;
-  height: 40px;
-  border: 5px solid rgba(0, 0, 0, 0.1);
-  border-top: 5px solid #048abf; /* Change this to match your theme */
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
+/* ✅ Progress Percentage Text */
+.progress-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #048abf; /* Matches primary theme */
+  animation: fadeIn 3s ease-in-out;
 }
 
 /* ✅ Fade-In Animation */
@@ -53,15 +52,5 @@
   to {
     opacity: 1;
     transform: scale(1);
-  }
-}
-
-/* ✅ Spinner Rotation Animation */
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
   }
 }

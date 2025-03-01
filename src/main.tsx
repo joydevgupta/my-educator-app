@@ -5,12 +5,24 @@ import App from './App.tsx';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme/theme.ts';
 
-// ✅ Preloader Component with Spinner
+// ✅ Preloader Component with Progress Percentage
 const Preloader = ({ onComplete }: { onComplete: () => void }) => {
   const [fadeOut, setFadeOut] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Show logo for 3 seconds, then start fade-out
+    // Simulate loading progress (0% → 100% over 3s)
+    const progressInterval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(progressInterval);
+          return 100;
+        }
+        return prev + 5;
+      });
+    }, 150); // Increase progress every 150ms
+
+    // Start fade-out after 3 seconds
     setTimeout(() => {
       setFadeOut(true);
     }, 3000);
@@ -18,18 +30,20 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
     // Fully remove loader after 5 seconds
     setTimeout(() => {
       onComplete();
-    }, 4000);
+    }, 5000);
+
+    return () => clearInterval(progressInterval); // Cleanup interval
   }, [onComplete]);
 
   return (
     <div className={`preloader ${fadeOut ? 'fade-out' : ''}`}>
       <div className="preloader-content">
         <img
-          src="/edufinitelogo.png"
-          alt="Educator Platform Logo"
+          src={`${import.meta.env.BASE_URL}edufinitelogo.png`}
+          alt="Edufinite Logo"
           className="preloader-logo"
         />
-        <div className="spinner"></div>
+        <div className="progress-text">{progress}%</div>
       </div>
     </div>
   );
