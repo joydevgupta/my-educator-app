@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
   const slides: Slide[] = [
     {
       // 1st slide -> Preserves your "Welcome to EDUFINITE" message
-      imageUrl: '/HeroSlide1.webp',
+      imageUrl: './HeroSlide1.webp',
       title: (
         <>
           Welcome to{' '}
@@ -35,19 +35,19 @@ const Hero: React.FC = () => {
     },
     {
       // 2nd slide
-      imageUrl: '/HeroSlide2.webp',
+      imageUrl: './HeroSlide2.webp',
       title: 'Your second message here...',
       subtitle: 'Subtitle or tagline for the second slide',
     },
     {
       // 3rd slide
-      imageUrl: '/HeroSlide3.webp',
+      imageUrl: './HeroSlide3.webp',
       title: 'Your third message here...',
       subtitle: 'Subtitle or tagline for the third slide',
     },
     {
       // 4th slide
-      imageUrl: '/HeroSlide4.webp',
+      imageUrl: './HeroSlide4.webp',
       title: 'Your fourth message here...',
       subtitle: 'Subtitle or tagline for the fourth slide',
     },
