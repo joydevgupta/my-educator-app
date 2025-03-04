@@ -1,8 +1,8 @@
-// import React from 'react';
-import Hero from './Hero';
-import CTABanner from './CTABanner';
-import TeachingApproach from './TeachingApproach';
+import React from 'react';
 import { Box } from '@mui/material';
+import Hero from './Hero';
+import TeachingApproach from './TeachingApproach';
+import CTABanner from './CTABanner';
 
 /**
  * The main homepage, composed of various sections: Hero, Teaching Approach,
@@ -11,13 +11,13 @@ import { Box } from '@mui/material';
 const Home: React.FC = () => {
   return (
     <Box>
-      {/* Hero section with a welcome message and optional CTA buttons */}
+      {/* The updated Hero with a 4-slide carousel */}
       <Hero />
 
-      {/* Teaching Approach section */}
+      {/* Teaching Approach section (unchanged) */}
       <TeachingApproach />
 
-      {/* CTA Banner */}
+      {/* CTA Banner (unchanged) */}
       <CTABanner />
     </Box>
   );
