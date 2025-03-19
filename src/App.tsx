@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import { lazy, Suspense } from 'react'; // 🔹 Removed `React` since it's not used directly
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 
