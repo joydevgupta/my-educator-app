@@ -9,6 +9,7 @@ const CTABanner: React.FC = () => {
   return (
     <Box
       sx={{
+        position: 'relative',
         backgroundColor: 'secondary.main',
         color: 'white',
         textAlign: 'center',

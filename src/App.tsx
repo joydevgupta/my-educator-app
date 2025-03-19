@@ -1,9 +1,11 @@
-// App.tsx
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import About from './pages/About/About';
-import Courses from './pages/Courses/Courses';
 import './App.css';
+
+// Lazy-load each page component
+const Home = lazy(() => import('./pages/Home/Home'));
+const About = lazy(() => import('./pages/About/About'));
+const Courses = lazy(() => import('./pages/Courses/Courses'));
 
 function App() {
   // Check if we’re in production mode (for GitHub Pages)
@@ -11,25 +13,15 @@ function App() {
 
   return (
     <div className="appContainer">
-      {/* <Typography variant="h1" gutterBottom className="multiColor">
-        <span>E</span>
-        <span>D</span>
-        <span>U</span>
-        <span>F</span>
-        <span>I</span>
-        <span>N</span>
-        <span>I</span>
-        <span>T</span>
-        <span>E</span>
-      </Typography> */}
-
-      {/* Use BrowserRouter with a conditional basename */}
       <BrowserRouter basename={isProd ? '/my-educator-app' : '/'}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/courses" element={<Courses />} />
-        </Routes>
+        {/* Provide a fallback for when lazy modules are loading */}
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/courses" element={<Courses />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </div>
   );

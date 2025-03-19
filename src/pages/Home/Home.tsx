@@ -1,24 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box } from '@mui/material';
 import Hero from './Hero';
 import TeachingApproach from './TeachingApproach';
 import CTABanner from './CTABanner';
 
-/**
- * The main homepage, composed of various sections: Hero, Teaching Approach,
- * CTA banner, etc.
- */
 const Home: React.FC = () => {
+  // 🔹 Track if the Hero section has fully loaded
+  const [heroLoaded, setHeroLoaded] = useState(false);
+
+  useEffect(() => {
+    // 🔹 Small delay to ensure the Hero is fully rendered before showing CTA
+    const timeout = setTimeout(() => setHeroLoaded(true), 500);
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <Box>
-      {/* The updated Hero with a 4-slide carousel */}
+      {/* 🔹 Render Hero first */}
       <Hero />
 
-      {/* Teaching Approach section (unchanged) */}
+      {/* Teaching Approach section remains unchanged */}
       <TeachingApproach />
 
-      {/* CTA Banner (unchanged) */}
-      <CTABanner />
+      {/* 🔹 CTA Banner only appears after Hero is loaded */}
+      {heroLoaded && <CTABanner />}
     </Box>
   );
 };
