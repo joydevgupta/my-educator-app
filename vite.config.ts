@@ -2,20 +2,28 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
 
-// "command" can be 'serve' or 'build', "mode" can be 'development' or 'production'
 export default defineConfig(({ mode }) => {
   return {
     base: mode === 'production' ? '/my-educator-app/' : '/',
     build: {
-      outDir: 'dist', // Revert back to dist for gh-pages deployment
+      outDir: 'dist', // Keeps deployment structure intact
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'react-vendor': ['react', 'react-dom'], // Splits React-related code
+            'mui-vendor': ['@mui/material', '@mui/icons-material'], // Splits Material UI
+            'utility-vendor': ['lodash', 'date-fns'], // Example: Splitting utility libraries (add others if needed)
+          },
+        },
+      },
+      chunkSizeWarningLimit: 500, // Adjusts warning threshold
     },
     plugins: [
       react(),
-      // Add the visualizer plugin
       visualizer({
-        filename: './dist/stats.html', // stats file location
-        template: 'treemap', // or "sunburst", "network", etc.
-        open: true, // auto-open stats.html after build
+        filename: './dist/stats.html',
+        template: 'treemap',
+        open: true,
       }),
     ],
   };
