@@ -33,7 +33,7 @@ const slides: Slide[] = [
     imageUrl: './HeroSlide4.webp',
     title: 'Step Into Success',
     subtitle:
-      ': Personalized Plans, Inspiring Feedback, and a Clear Path to Fluent English',
+      'Personalized Plans, Inspiring Feedback, and a Clear Path to Fluent English',
   },
 ];
 
