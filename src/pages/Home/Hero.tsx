@@ -38,11 +38,9 @@ const slides: Slide[] = [
 ];
 
 const Hero: React.FC = () => {
-  // 🔹 Track if images are fully loaded
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
-    // 🔹 Preload images before displaying the Hero section
     let loaded = 0;
     slides.forEach((slide) => {
       const img = new Image();
@@ -59,11 +57,10 @@ const Hero: React.FC = () => {
       sx={{
         width: '100%',
         maxWidth: '100%',
-        minHeight: '70vh', // 🔹 Ensures the Hero section always takes space
-        backgroundColor: '#FDF9F4', // 🔹 Prevents layout shifts
+        minHeight: '70vh',
+        backgroundColor: '#FDF9F4',
       }}
     >
-      {/* 🔹 Show a loading state until images are fully loaded */}
       {!imagesLoaded ? (
         <Box
           sx={{
@@ -103,7 +100,7 @@ const Hero: React.FC = () => {
                 backgroundImage: `url(${slide.imageUrl})`,
               }}
             >
-              {/* Optional overlay for better text contrast */}
+              {/* A dark overlay to ensure text readability */}
               <Box
                 sx={{
                   position: 'absolute',
@@ -118,14 +115,34 @@ const Hero: React.FC = () => {
               <Box
                 sx={{ position: 'relative', zIndex: 1, mx: 2, maxWidth: 600 }}
               >
-                <Typography variant="h2" gutterBottom>
+                <Typography
+                  variant="h2"
+                  gutterBottom
+                  sx={{
+                    fontSize: '36px',
+                    color: '#FFFFFF', // Sparkling white
+                    textShadow: '0 1px 3px rgba(0, 0, 0, 0.6)', // Subtle glow
+                    lineHeight: 1.2, // Optional: helps with readability
+                  }}
+                >
                   {slide.title}
                 </Typography>
+
                 {slide.subtitle && (
-                  <Typography variant="body1" paragraph>
+                  <Typography
+                    variant="body1"
+                    paragraph
+                    sx={{
+                      fontSize: '16px',
+                      color: '#FFFFFF',
+                      textShadow: '0 1px 3px rgba(0, 0, 0, 0.6)',
+                      lineHeight: 1.4,
+                    }}
+                  >
                     {slide.subtitle}
                   </Typography>
                 )}
+
                 <Box
                   sx={{
                     display: 'flex',
