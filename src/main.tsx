@@ -39,7 +39,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
     <div className={`preloader ${fadeOut ? 'fade-out' : ''}`}>
       <div className="preloader-content">
         <img
-          src={`${import.meta.env.BASE_URL}edufinitelogo.png`}
+          src={`${import.meta.env.BASE_URL}edufinitelogo.webp`}
           alt="Edufinite Logo"
           className="preloader-logo"
         />

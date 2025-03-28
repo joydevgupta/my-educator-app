@@ -14,22 +14,26 @@ const slides: Slide[] = [
   {
     imageUrl: './HeroSlide1.webp',
     title: 'Welcome to EDUFINITE',
-    subtitle: 'Highlights of my teaching approach and a quick welcome message.',
+    subtitle:
+      'Refine, Express, Excel - Personalized Online English Coaching for Young Minds.',
   },
   {
     imageUrl: './HeroSlide2.webp',
-    title: 'Your second message here...',
-    subtitle: 'Subtitle or tagline for the second slide',
+    title: 'Your Dedicated English Mentor',
+    subtitle:
+      'One-on-One Guidance to Spark Confidence and Life-Long Language Skills',
   },
   {
     imageUrl: './HeroSlide3.webp',
-    title: 'Your third message here...',
-    subtitle: 'Subtitle or tagline for the third slide',
+    title: 'Engage, Explore, Excel',
+    subtitle:
+      'Interactive Lessons Crafted for Each Child’s Unique Pace and Curiosity',
   },
   {
     imageUrl: './HeroSlide4.webp',
-    title: 'Your fourth message here...',
-    subtitle: 'Subtitle or tagline for the fourth slide',
+    title: 'Step Into Success',
+    subtitle:
+      ': Personalized Plans, Inspiring Feedback, and a Clear Path to Fluent English',
   },
 ];
 

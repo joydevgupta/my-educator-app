@@ -6,17 +6,16 @@ export default defineConfig(({ mode }) => {
   return {
     base: mode === 'production' ? '/my-educator-app/' : '/',
     build: {
-      outDir: 'dist', // Keeps deployment structure intact
+      outDir: 'dist',
       rollupOptions: {
         output: {
           manualChunks: {
-            'react-vendor': ['react', 'react-dom'], // Splits React-related code
-            'mui-vendor': ['@mui/material', '@mui/icons-material'], // Splits Material UI
-            'utility-vendor': ['lodash', 'date-fns'], // Example: Splitting utility libraries (add others if needed)
+            'react-vendor': ['react', 'react-dom'],
+            'mui-vendor': ['@mui/material', '@mui/icons-material'],
           },
         },
       },
-      chunkSizeWarningLimit: 500, // Adjusts warning threshold
+      chunkSizeWarningLimit: 500,
     },
     plugins: [
       react(),
