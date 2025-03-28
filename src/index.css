@@ -30,14 +30,17 @@
 
 /* ✅ Preloader Logo */
 .preloader-logo {
-  width: 200px;
+  width: 300px; /* or any desired size */
   height: auto;
   animation: fadeIn 3s ease-in-out;
+
+  /* Add a bright halo/glow: you can adjust the values as you like */
+  filter: drop-shadow(0 0 10px rgba(30, 143, 255, 0.986));
 }
 
 /* ✅ Progress Percentage Text */
 .progress-text {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   color: #048abf; /* Matches primary theme */
   animation: fadeIn 3s ease-in-out;
