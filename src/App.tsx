@@ -1,20 +1,27 @@
-import { lazy, Suspense } from 'react'; // 🔹 Removed `React` since it's not used directly
+// src/App.tsx
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 
-// Lazy-load each page component
+import NavBar from './components/NavBar/NavBar';
+// ^ Make sure this NavBar uses LinkBehavior for active route highlighting
+
+// Lazy load each page (your existing approach)
 const Home = lazy(() => import('./pages/Home/Home'));
 const About = lazy(() => import('./pages/About/About'));
 const Courses = lazy(() => import('./pages/Courses/Courses'));
 
 function App() {
-  // Check if we’re in production mode (for GitHub Pages)
+  // For GitHub Pages or production base path
   const isProd = import.meta.env.MODE === 'production';
 
   return (
     <div className="appContainer">
       <BrowserRouter basename={isProd ? '/my-educator-app' : '/'}>
-        {/* Provide a fallback for when lazy modules are loading */}
+        {/* Render NavBar here */}
+        <NavBar />
+
+        {/* Provide a fallback for lazy-loaded components */}
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/" element={<Home />} />

@@ -1,0 +1,9 @@
+/* Styles for NavBar. The default active class is 'active-route'. */
+
+.active-route {
+  font-weight: bold;
+  /* For example, highlight with an underline or color:
+    text-decoration: underline;
+    color: #ffde59; 
+    */
+}
