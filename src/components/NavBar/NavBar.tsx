@@ -1,8 +1,7 @@
 // src/components/NavBar/NavBar.tsx
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
-import LinkBehavior from '../LinkBehavior';
-import './NavBar.css'; // Or merge these styles into your existing App.css
+import { NavLink } from 'react-router-dom';
 
 const NavBar: React.FC = () => {
   return (
@@ -12,20 +11,32 @@ const NavBar: React.FC = () => {
           EDUFINITE
         </Typography>
 
-        {/* Link to Home */}
-        <Button component={LinkBehavior} href="/" color="inherit">
-          Home
-        </Button>
+        {/* HOME */}
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? 'active-route' : '')}
+          style={{ textDecoration: 'none' }}
+        >
+          <Button color="inherit">Home</Button>
+        </NavLink>
 
-        {/* Link to About */}
-        <Button component={LinkBehavior} href="/about" color="inherit">
-          About
-        </Button>
+        {/* ABOUT */}
+        <NavLink
+          to="/about"
+          className={({ isActive }) => (isActive ? 'active-route' : '')}
+          style={{ textDecoration: 'none' }}
+        >
+          <Button color="inherit">About</Button>
+        </NavLink>
 
-        {/* Link to Courses */}
-        <Button component={LinkBehavior} href="/courses" color="inherit">
-          Courses
-        </Button>
+        {/* COURSES */}
+        <NavLink
+          to="/courses"
+          className={({ isActive }) => (isActive ? 'active-route' : '')}
+          style={{ textDecoration: 'none' }}
+        >
+          <Button color="inherit">Courses</Button>
+        </NavLink>
       </Toolbar>
     </AppBar>
   );

@@ -15,7 +15,6 @@ body,
 */
 body {
   font-family: 'Inter', 'Roboto', sans-serif;
-  /* No need to set background here if we want MUI to handle it */
   /* background-color: #FDFDFD; */
 }
 
@@ -59,4 +58,17 @@ body {
 }
 .multiColor span:nth-child(9) {
   color: #d0cece; /* Light Gray */
+}
+
+/* 
+  Add "active-route" styling for NavLink.
+  This will highlight the button when the route is active.
+*/
+.active-route button {
+  font-weight: bold;
+  /* Example styling:
+     text-decoration: underline;
+     color: #ffde59;
+     etc.
+  */
 }

@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 
 import NavBar from './components/NavBar/NavBar';
-// ^ Make sure this NavBar uses LinkBehavior for active route highlighting
 
 // Lazy load each page (your existing approach)
 const Home = lazy(() => import('./pages/Home/Home'));
@@ -18,10 +17,8 @@ function App() {
   return (
     <div className="appContainer">
       <BrowserRouter basename={isProd ? '/my-educator-app' : '/'}>
-        {/* Render NavBar here */}
         <NavBar />
 
-        {/* Provide a fallback for lazy-loaded components */}
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/" element={<Home />} />
