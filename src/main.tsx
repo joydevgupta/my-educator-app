@@ -1,3 +1,4 @@
+// src/main.tsx
 import { StrictMode, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
@@ -5,13 +6,12 @@ import App from './App.tsx';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme/theme.ts';
 
-// ✅ Preloader Component with Progress Percentage
+// Your preloader remains the same...
 const Preloader = ({ onComplete }: { onComplete: () => void }) => {
   const [fadeOut, setFadeOut] = useState(false);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Simulate loading progress (0% → 100% over 3s)
     const progressInterval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -20,19 +20,17 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
         }
         return prev + 5;
       });
-    }, 150); // Increase progress every 150ms
+    }, 150);
 
-    // Start fade-out after 3 seconds
     setTimeout(() => {
       setFadeOut(true);
     }, 3000);
 
-    // Fully remove loader after 5 seconds
     setTimeout(() => {
       onComplete();
     }, 5000);
 
-    return () => clearInterval(progressInterval); // Cleanup interval
+    return () => clearInterval(progressInterval);
   }, [onComplete]);
 
   return (
@@ -49,10 +47,8 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
   );
 };
 
-// ✅ Root Initialization
 const rootElement = document.getElementById('root');
 
-// ✅ Render Preloader Before React App
 if (rootElement) {
   rootElement.innerHTML = '<div id="preload"></div>';
   const preloadRoot = createRoot(document.getElementById('preload')!);

@@ -1,32 +1,33 @@
 // src/App.tsx
 import { lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// Switch from BrowserRouter to HashRouter
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 
 import NavBar from './components/NavBar/NavBar';
 
-// Lazy load each page (your existing approach)
+// Lazy-load each page
 const Home = lazy(() => import('./pages/Home/Home'));
 const About = lazy(() => import('./pages/About/About'));
 const Courses = lazy(() => import('./pages/Courses/Courses'));
 
 function App() {
-  // For GitHub Pages or production base path
-  const isProd = import.meta.env.MODE === 'production';
-
   return (
     <div className="appContainer">
-      <BrowserRouter basename={isProd ? '/my-educator-app' : '/'}>
+      {/* We remove the basename logic. */}
+      <HashRouter>
         <NavBar />
 
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
+            {/* The slash-based paths remain the same, 
+                but now they live behind # in the final URL. */}
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/courses" element={<Courses />} />
           </Routes>
         </Suspense>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
