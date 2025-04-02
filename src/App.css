@@ -11,11 +11,10 @@ body,
 /* 
   Font family is controlled by the MUI theme,
   so this is optional if you trust the theme. 
-  We'll keep it for a quick fallback if needed.
+  We'll keep it for a fallback if needed.
 */
 body {
   font-family: 'Inter', 'Roboto', sans-serif;
-  /* background-color: #FDFDFD; */
 }
 
 /* Utility class for spacing */
@@ -28,12 +27,12 @@ body {
   padding: 1rem;
 }
 
-/* 
-  Keep the multiColor logo as is, 
-  so "EDUFINITE" colors remain unchanged 
-*/
+/* --------------------------
+   MultiColor logo styling
+   Each letter is assigned a color
+--------------------------- */
 .multiColor span:nth-child(1) {
-  color: #777777; /* Dark Grey */
+  color: #777777; /* Gray */
 }
 .multiColor span:nth-child(2) {
   color: #a568d2; /* Purple */
@@ -61,14 +60,27 @@ body {
 }
 
 /* 
-  Add "active-route" styling for NavLink.
-  This will highlight the button when the route is active.
+  Default link styling: 
+  'navbar-link' -> inactive
+*/
+.navbar-link button {
+  color: #555; /* Dark gray for inactive links */
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.navbar-link:hover button {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+/* 
+  Active link styling: 
+  'active-route' -> user is currently on that route
 */
 .active-route button {
+  color: #ff6347; /* Tomato color to stand out */
   font-weight: bold;
-  /* Example styling:
-     text-decoration: underline;
-     color: #ffde59;
-     etc.
-  */
+  background-color: rgba(255, 99, 71, 0.15); /* a subtle highlight background */
+  border-radius: 4px; /* rounded corners for the highlight */
 }
