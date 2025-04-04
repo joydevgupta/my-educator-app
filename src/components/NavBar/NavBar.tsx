@@ -61,7 +61,11 @@ const NavBar: React.FC = () => {
 
         {isMobile ? (
           <>
-            <IconButton color="inherit" onClick={toggleDrawer(true)} edge="end">
+            <IconButton
+              onClick={toggleDrawer(true)}
+              edge="end"
+              sx={{ color: '#000' }} // Set a contrasting color (black) for visibility
+            >
               <MenuIcon />
             </IconButton>
             <Drawer
