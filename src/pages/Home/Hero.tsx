@@ -57,14 +57,14 @@ const Hero: React.FC = () => {
       sx={{
         width: '100%',
         maxWidth: '100%',
-        minHeight: '70vh',
         backgroundColor: '#FDF9F4',
       }}
     >
       {!imagesLoaded ? (
         <Box
           sx={{
-            minHeight: '70vh',
+            width: '100%',
+            height: '70vh',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -88,19 +88,20 @@ const Hero: React.FC = () => {
               key={index}
               sx={{
                 position: 'relative',
-                height: '70vh',
+                width: '100%',
+                aspectRatio: '1792 / 1024', // Ensures container follows image aspect ratio
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 textAlign: 'center',
                 color: 'white',
                 backgroundColor: '#FDF9F4',
-                backgroundSize: 'cover',
+                backgroundSize: 'contain', // Ensures entire image is visible
                 backgroundPosition: 'center',
                 backgroundImage: `url(${slide.imageUrl})`,
               }}
             >
-              {/* A dark overlay to ensure text readability */}
+              {/* Optional dark overlay for text readability */}
               <Box
                 sx={{
                   position: 'absolute',
@@ -121,8 +122,8 @@ const Hero: React.FC = () => {
                   sx={{
                     fontSize: '36px',
                     color: '#FFFFFF', // Sparkling white
-                    textShadow: '0 1px 3px rgba(0, 0, 0, 0.6)', // Subtle glow
-                    lineHeight: 1.2, // Optional: helps with readability
+                    textShadow: '0 1px 3px rgba(0, 0, 0, 0.6)',
+                    lineHeight: 1.2,
                   }}
                 >
                   {slide.title}
