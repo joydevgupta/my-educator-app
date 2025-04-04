@@ -1,25 +1,48 @@
 // src/components/NavBar/NavBar.tsx
-import React from 'react';
-import { AppBar, Toolbar, Box, Button } from '@mui/material';
+import React, { useState } from 'react';
+import {
+  AppBar,
+  Toolbar,
+  Box,
+  Button,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  useTheme,
+  useMediaQuery,
+} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import { NavLink } from 'react-router-dom';
 import '../../App.css';
 
 const NavBar: React.FC = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const toggleDrawer = (open: boolean) => () => {
+    setDrawerOpen(open);
+  };
+
+  const navLinks = [
+    { title: 'Home', path: '/' },
+    { title: 'About', path: '/about' },
+    { title: 'Courses', path: '/courses' },
+  ];
+
   return (
     <AppBar
       position="static"
       sx={{
         backgroundColor: 'transparent',
-        boxShadow: 'none', // Remove default shadow for a clean look
+        boxShadow: 'none',
       }}
     >
       <Toolbar>
         {/* Left side: multiColor text logo */}
         <Box sx={{ flexGrow: 1 }}>
-          {/* 
-            The .multiColor class is defined in App.css to color each letter 
-            differently via nth-child. 
-          */}
           <div
             className="multiColor"
             style={{ fontSize: '1.6rem', fontWeight: 600 }}
@@ -36,38 +59,62 @@ const NavBar: React.FC = () => {
           </div>
         </Box>
 
-        {/* NavLink: HOME */}
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            isActive ? 'active-route' : 'navbar-link'
-          }
-          style={{ textDecoration: 'none' }}
-        >
-          <Button variant="text">Home</Button>
-        </NavLink>
-
-        {/* NavLink: ABOUT */}
-        <NavLink
-          to="/about"
-          className={({ isActive }) =>
-            isActive ? 'active-route' : 'navbar-link'
-          }
-          style={{ textDecoration: 'none' }}
-        >
-          <Button variant="text">About</Button>
-        </NavLink>
-
-        {/* NavLink: COURSES */}
-        <NavLink
-          to="/courses"
-          className={({ isActive }) =>
-            isActive ? 'active-route' : 'navbar-link'
-          }
-          style={{ textDecoration: 'none' }}
-        >
-          <Button variant="text">Courses</Button>
-        </NavLink>
+        {isMobile ? (
+          <>
+            <IconButton color="inherit" onClick={toggleDrawer(true)} edge="end">
+              <MenuIcon />
+            </IconButton>
+            <Drawer
+              anchor="right"
+              open={drawerOpen}
+              onClose={toggleDrawer(false)}
+            >
+              <Box
+                sx={{ width: 250 }}
+                role="presentation"
+                onClick={toggleDrawer(false)}
+                onKeyDown={toggleDrawer(false)}
+              >
+                <List>
+                  {navLinks.map((link) => (
+                    <ListItem button key={link.title}>
+                      <NavLink
+                        to={link.path}
+                        style={{
+                          textDecoration: 'none',
+                          width: '100%',
+                          color: 'inherit',
+                        }}
+                        className={({ isActive }) =>
+                          isActive ? 'active-route' : 'navbar-link'
+                        }
+                      >
+                        <ListItemText primary={link.title} />
+                      </NavLink>
+                    </ListItem>
+                  ))}
+                </List>
+              </Box>
+            </Drawer>
+          </>
+        ) : (
+          <>
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.title}
+                to={link.path}
+                className={({ isActive }) =>
+                  isActive ? 'active-route' : 'navbar-link'
+                }
+                style={{ textDecoration: 'none' }}
+              >
+                <Button variant="text" color="inherit">
+                  {link.title}
+                </Button>
+              </NavLink>
+            ))}
+          </>
+        )}
       </Toolbar>
     </AppBar>
   );
