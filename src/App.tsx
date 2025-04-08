@@ -1,26 +1,33 @@
-// App.tsx
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import About from './pages/About/About';
-import Courses from './pages/Courses/Courses';
-import './App.css'; // keep if you have a minimal reset
-import { Typography } from '@mui/material';
+// src/App.tsx
+import { lazy, Suspense } from 'react';
+// Switch from BrowserRouter to HashRouter
+import { HashRouter, Routes, Route } from 'react-router-dom';
+import './App.css';
+
+import NavBar from './components/NavBar/NavBar';
+
+// Lazy-load each page
+const Home = lazy(() => import('./pages/Home/Home'));
+const About = lazy(() => import('./pages/About/About'));
+const Courses = lazy(() => import('./pages/Courses/Courses'));
 
 function App() {
   return (
     <div className="appContainer">
-      {/* MUI Typography used here */}
-      <Typography variant="h2" gutterBottom>
-        My Educator App
-      </Typography>
+      {/* We remove the basename logic. */}
+      <HashRouter>
+        <NavBar />
 
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/courses" element={<Courses />} />
-        </Routes>
-      </Router>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            {/* The slash-based paths remain the same, 
+                but now they live behind # in the final URL. */}
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/courses" element={<Courses />} />
+          </Routes>
+        </Suspense>
+      </HashRouter>
     </div>
   );
 }

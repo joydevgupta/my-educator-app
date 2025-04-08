@@ -1,26 +1,47 @@
-// src/pages/Home/Home.tsx
-import React from 'react';
-import { Box, Button, Typography } from '@mui/material';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
+import { Box } from '@mui/material';
+import Hero from './Hero';
+
+// 🔹 Lazy-load TeachingApproach & CTABanner
+const TeachingApproach = lazy(() => import('./TeachingApproach'));
+const CTABanner = lazy(() => import('./CTABanner'));
 
 const Home: React.FC = () => {
-  return (
-    <Box sx={{ p: 2 }}>
-      <Typography variant="h2" gutterBottom>
-        Welcome to My Educator App
-      </Typography>
-      <Typography variant="body1" paragraph>
-        Highlights of my teaching approach and a quick welcome message.
-      </Typography>
+  // 🔹 Track if the Hero section has fully loaded
+  const [heroLoaded, setHeroLoaded] = useState(false);
 
-      {/* CTA Buttons */}
-      <Box sx={{ display: 'flex', gap: 1 }}>
-        <Button variant="contained" color="primary">
-          Book Now
-        </Button>
-        <Button variant="outlined" color="secondary">
-          Learn More
-        </Button>
-      </Box>
+  useEffect(() => {
+    // 🔹 Small delay to ensure Hero is fully rendered before showing CTA
+    const timeout = setTimeout(() => setHeroLoaded(true), 500);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  return (
+    <Box>
+      {/* 🔹 Render Hero first */}
+      <Hero />
+
+      {/* 🔹 Use Suspense to lazy-load TeachingApproach */}
+      <Suspense
+        fallback={
+          <Box sx={{ textAlign: 'center', py: 3 }}>
+            Loading Teaching Approach...
+          </Box>
+        }
+      >
+        <TeachingApproach />
+      </Suspense>
+
+      {/* 🔹 CTA Banner only appears after Hero is loaded */}
+      {heroLoaded && (
+        <Suspense
+          fallback={
+            <Box sx={{ textAlign: 'center', py: 3 }}>Loading CTA Banner...</Box>
+          }
+        >
+          <CTABanner />
+        </Suspense>
+      )}
     </Box>
   );
 };
