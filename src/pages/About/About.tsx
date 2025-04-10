@@ -11,13 +11,14 @@ import {
   Link,
   useTheme,
   Avatar,
+  Container,
 } from '@mui/material';
 
 const About: React.FC = () => {
   const theme = useTheme();
 
   return (
-    <Box sx={{ width: '100%', overflowX: 'hidden' }}>
+    <Box sx={{ width: '100%' }}>
       {/* ===================
           1. Hero Banner
       =================== */}
@@ -67,7 +68,6 @@ const About: React.FC = () => {
 
       {/* =============================
           2. Full-Width Pastel Blocks
-          Edge-to-edge, no container
       ============================= */}
 
       {/* 
@@ -75,34 +75,30 @@ const About: React.FC = () => {
         - Circular portrait on the left
       */}
       <Box
-        sx={{
-          width: '100%',
-          backgroundColor: theme.palette.info.light,
-          py: { xs: 4, md: 6 },
-          px: { xs: 2, md: 4 },
-        }}
+        sx={{ width: '100%', backgroundColor: theme.palette.info.light, py: 4 }}
       >
-        <Box
-          sx={{
-            maxWidth: 1200,
-            mx: 'auto',
-            boxShadow: 1,
-            p: { xs: 2, md: 4 },
-            borderRadius: 2,
-            transition: 'box-shadow 0.3s ease',
-            '&:hover': { boxShadow: 4 },
-          }}
-        >
-          <Grid container spacing={4} alignItems="center">
-            {/* LEFT: Circular portrait (fixed dimension for consistent aspect ratio) */}
+        <Container maxWidth="lg">
+          <Grid
+            container
+            spacing={2}
+            alignItems="center"
+            sx={{
+              boxShadow: 1,
+              p: 2,
+              borderRadius: 2,
+              transition: 'box-shadow 0.3s ease',
+              '&:hover': { boxShadow: 4 },
+            }}
+          >
+            {/* LEFT: Circular portrait */}
             <Grid item xs={12} md={4}>
               <Box sx={{ display: 'flex', justifyContent: 'center' }}>
                 <Avatar
                   src="/path/to/educator-photo.jpg"
                   alt="Educator"
                   sx={{
-                    width: { xs: 160, md: 200 },
-                    height: { xs: 160, md: 200 },
+                    width: { xs: 140, md: 180 },
+                    height: { xs: 140, md: 180 },
                     borderRadius: '50%',
                   }}
                 />
@@ -137,7 +133,7 @@ const About: React.FC = () => {
               </Typography>
             </Grid>
           </Grid>
-        </Box>
+        </Container>
       </Box>
 
       {/* 
@@ -148,26 +144,22 @@ const About: React.FC = () => {
         sx={{
           width: '100%',
           backgroundColor: theme.palette.warning.light,
-          py: { xs: 4, md: 6 },
-          px: { xs: 2, md: 4 },
+          py: 4,
         }}
       >
-        <Box
-          sx={{
-            maxWidth: 1200,
-            mx: 'auto',
-            boxShadow: 1,
-            p: { xs: 2, md: 4 },
-            borderRadius: 2,
-            transition: 'box-shadow 0.3s ease',
-            '&:hover': { boxShadow: 4 },
-          }}
-        >
+        <Container maxWidth="lg">
           <Grid
             container
-            spacing={4}
+            spacing={2}
             alignItems="center"
             direction={{ xs: 'column', md: 'row-reverse' }}
+            sx={{
+              boxShadow: 1,
+              p: 2,
+              borderRadius: 2,
+              transition: 'box-shadow 0.3s ease',
+              '&:hover': { boxShadow: 4 },
+            }}
           >
             {/* RIGHT: Square icon/image */}
             <Grid item xs={12} md={4}>
@@ -177,8 +169,8 @@ const About: React.FC = () => {
                   src="/path/to/certifications-icon.jpg"
                   alt="Certifications Icon"
                   sx={{
-                    width: { xs: 160, md: 200 },
-                    height: { xs: 160, md: 200 },
+                    width: { xs: 140, md: 180 },
+                    height: { xs: 140, md: 180 },
                     borderRadius: 0,
                     objectFit: 'cover',
                   }}
@@ -215,7 +207,7 @@ const About: React.FC = () => {
               </ul>
             </Grid>
           </Grid>
-        </Box>
+        </Container>
       </Box>
 
       {/* 
@@ -226,22 +218,22 @@ const About: React.FC = () => {
         sx={{
           width: '100%',
           backgroundColor: theme.palette.success.light,
-          py: { xs: 4, md: 6 },
-          px: { xs: 2, md: 4 },
+          py: 4,
         }}
       >
-        <Box
-          sx={{
-            maxWidth: 1200,
-            mx: 'auto',
-            boxShadow: 1,
-            p: { xs: 2, md: 4 },
-            borderRadius: 2,
-            transition: 'box-shadow 0.3s ease',
-            '&:hover': { boxShadow: 4 },
-          }}
-        >
-          <Grid container spacing={4} alignItems="center">
+        <Container maxWidth="lg">
+          <Grid
+            container
+            spacing={2}
+            alignItems="center"
+            sx={{
+              boxShadow: 1,
+              p: 2,
+              borderRadius: 2,
+              transition: 'box-shadow 0.3s ease',
+              '&:hover': { boxShadow: 4 },
+            }}
+          >
             {/* LEFT: Square icon/image */}
             <Grid item xs={12} md={4}>
               <Box sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -250,8 +242,8 @@ const About: React.FC = () => {
                   src="/path/to/experience-icon.jpg"
                   alt="Experience Icon"
                   sx={{
-                    width: { xs: 160, md: 200 },
-                    height: { xs: 160, md: 200 },
+                    width: { xs: 140, md: 180 },
+                    height: { xs: 140, md: 180 },
                     borderRadius: 0,
                     objectFit: 'cover',
                   }}
@@ -278,7 +270,7 @@ const About: React.FC = () => {
               </Typography>
             </Grid>
           </Grid>
-        </Box>
+        </Container>
       </Box>
 
       {/* 
@@ -289,26 +281,22 @@ const About: React.FC = () => {
         sx={{
           width: '100%',
           backgroundColor: theme.palette.primary.light,
-          py: { xs: 4, md: 6 },
-          px: { xs: 2, md: 4 },
+          py: 4,
         }}
       >
-        <Box
-          sx={{
-            maxWidth: 1200,
-            mx: 'auto',
-            boxShadow: 1,
-            p: { xs: 2, md: 4 },
-            borderRadius: 2,
-            transition: 'box-shadow 0.3s ease',
-            '&:hover': { boxShadow: 4 },
-          }}
-        >
+        <Container maxWidth="lg">
           <Grid
             container
-            spacing={4}
+            spacing={2}
             alignItems="center"
             direction={{ xs: 'column', md: 'row-reverse' }}
+            sx={{
+              boxShadow: 1,
+              p: 2,
+              borderRadius: 2,
+              transition: 'box-shadow 0.3s ease',
+              '&:hover': { boxShadow: 4 },
+            }}
           >
             {/* RIGHT: Square icon/image */}
             <Grid item xs={12} md={4}>
@@ -318,8 +306,8 @@ const About: React.FC = () => {
                   src="/path/to/philosophy-icon.jpg"
                   alt="Philosophy Icon"
                   sx={{
-                    width: { xs: 160, md: 200 },
-                    height: { xs: 160, md: 200 },
+                    width: { xs: 140, md: 180 },
+                    height: { xs: 140, md: 180 },
                     borderRadius: 0,
                     objectFit: 'cover',
                   }}
@@ -359,7 +347,7 @@ const About: React.FC = () => {
               </ul>
             </Grid>
           </Grid>
-        </Box>
+        </Container>
       </Box>
 
       {/* 
@@ -367,25 +355,21 @@ const About: React.FC = () => {
         - Square icon on the left
       */}
       <Box
-        sx={{
-          width: '100%',
-          backgroundColor: theme.palette.info.light,
-          py: { xs: 4, md: 6 },
-          px: { xs: 2, md: 4 },
-        }}
+        sx={{ width: '100%', backgroundColor: theme.palette.info.light, py: 4 }}
       >
-        <Box
-          sx={{
-            maxWidth: 1200,
-            mx: 'auto',
-            boxShadow: 1,
-            p: { xs: 2, md: 4 },
-            borderRadius: 2,
-            transition: 'box-shadow 0.3s ease',
-            '&:hover': { boxShadow: 4 },
-          }}
-        >
-          <Grid container spacing={4} alignItems="center">
+        <Container maxWidth="lg">
+          <Grid
+            container
+            spacing={2}
+            alignItems="center"
+            sx={{
+              boxShadow: 1,
+              p: 2,
+              borderRadius: 2,
+              transition: 'box-shadow 0.3s ease',
+              '&:hover': { boxShadow: 4 },
+            }}
+          >
             {/* LEFT: Square icon/image */}
             <Grid item xs={12} md={4}>
               <Box sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -394,8 +378,8 @@ const About: React.FC = () => {
                   src="/path/to/anecdotes-icon.jpg"
                   alt="Anecdotes Icon"
                   sx={{
-                    width: { xs: 160, md: 200 },
-                    height: { xs: 160, md: 200 },
+                    width: { xs: 140, md: 180 },
+                    height: { xs: 140, md: 180 },
                     borderRadius: 0,
                     objectFit: 'cover',
                   }}
@@ -418,7 +402,7 @@ const About: React.FC = () => {
               </Typography>
             </Grid>
           </Grid>
-        </Box>
+        </Container>
       </Box>
 
       {/* 
@@ -429,26 +413,22 @@ const About: React.FC = () => {
         sx={{
           width: '100%',
           backgroundColor: theme.palette.warning.light,
-          py: { xs: 4, md: 6 },
-          px: { xs: 2, md: 4 },
+          py: 4,
         }}
       >
-        <Box
-          sx={{
-            maxWidth: 1200,
-            mx: 'auto',
-            boxShadow: 1,
-            p: { xs: 2, md: 4 },
-            borderRadius: 2,
-            transition: 'box-shadow 0.3s ease',
-            '&:hover': { boxShadow: 4 },
-          }}
-        >
+        <Container maxWidth="lg">
           <Grid
             container
-            spacing={4}
+            spacing={2}
             alignItems="center"
             direction={{ xs: 'column', md: 'row-reverse' }}
+            sx={{
+              boxShadow: 1,
+              p: 2,
+              borderRadius: 2,
+              transition: 'box-shadow 0.3s ease',
+              '&:hover': { boxShadow: 4 },
+            }}
           >
             {/* RIGHT: Square icon/image (YouTube icon) */}
             <Grid item xs={12} md={4}>
@@ -458,8 +438,8 @@ const About: React.FC = () => {
                   src="/path/to/youtube-icon.jpg"
                   alt="YouTube Icon"
                   sx={{
-                    width: { xs: 160, md: 200 },
-                    height: { xs: 160, md: 200 },
+                    width: { xs: 140, md: 180 },
+                    height: { xs: 140, md: 180 },
                     borderRadius: 0,
                     objectFit: 'cover',
                   }}
@@ -519,7 +499,7 @@ const About: React.FC = () => {
               </Box>
             </Grid>
           </Grid>
-        </Box>
+        </Container>
       </Box>
 
       {/* ======================
